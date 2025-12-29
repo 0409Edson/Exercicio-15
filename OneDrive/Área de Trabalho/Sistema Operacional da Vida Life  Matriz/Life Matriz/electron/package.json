@@ -1,0 +1,45 @@
+{
+    "name": "lifeos-desktop",
+    "version": "1.0.0",
+    "description": "LifeOS Desktop - Sistema Operacional da Vida",
+    "main": "main.js",
+    "author": "Edson de Azevedo Martins",
+    "license": "MIT",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "electron": "electron .",
+        "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+        "electron:build": "next build && next export && electron-builder",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "build": {
+        "appId": "com.lifeos.app",
+        "productName": "LifeOS",
+        "directories": {
+            "output": "dist"
+        },
+        "files": [
+            "electron/**/*",
+            "out/**/*",
+            "public/**/*"
+        ],
+        "win": {
+            "target": "nsis",
+            "icon": "public/icon.ico"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true
+        }
+    },
+    "devDependencies": {
+        "electron": "^28.0.0",
+        "electron-builder": "^24.9.1",
+        "concurrently": "^8.2.2",
+        "wait-on": "^7.2.0"
+    }
+}
