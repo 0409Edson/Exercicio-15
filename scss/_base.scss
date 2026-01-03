@@ -1,0 +1,22 @@
+@use 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: variables.$roboto;
+}
+
+body {
+    background-color: variables.$bg-color;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: variables.$container-max-width;
+    width: 100%;
+    margin: 0 auto;
+}
